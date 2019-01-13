@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang = "en">
+ <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="stylesheet" type = "text/css" href="index.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Kieran Duggan</title>
+ </head>
+ <body>
+
+   <div class="container">
+     <div class="header">
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Kieran Duggan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.pdf">Resume</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Projects
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="artificial.html">Artificial Life Project</a>
+                <a class="dropdown-item" href="crypt.html">Crypt (WIP)</a>
+                <a class="dropdown-item" href="gamebook.html">GameBook</a>
+                <a class="dropdown-item" href="document.html">Document System (WIP)</a>
+              </div>
+            </li>
+        </div>
+      </nav>
+     </div>
+
+     <div class="main">
+       <p class="display-1">Artificial Life</p>
+       <p class="lead">
+         Based off of Conway's Game of Life, The goal of this project is to create simple rules which each individual organism follows in an attempt to
+         create more interesting emerging patterns. This was a group project. My work includs the logic for the grid and the graphics. The organism logic
+         and terrain generation are courtesy of my collaborators. <br>
+         Github: <a href="https://github.com/V-Grigoryan">V-Grigoryan</a><br>
+         Github: <a href="https://github.com/rick42">rick42</a><br>
+       </p>
+
+       <h2 class="display-4">Technology</h2>
+       <ul>
+         <li>Java</li>
+         <li>JavaFX</li>
+       </ul>
+
+       <h2 class="display-4">Demo</h2>
+       <h3>Initial state</h3>
+       <p>The grid is randomly set based on randomly generating a terrain of mountain ranges and rocks.
+       The terrain is then randomly filled with different ratios of organisms</p>
+       <img src="life_photos/life_start.png" alt="" class="img-fluid">
+       <br> <br>
+
+       <h3>After a full run</h3>
+       <p>After the program is run for some time, it will reach a steady state where the entire ecosystem dies.
+       At this point some statistics about the run are printed in the console</p>
+       <img src="life_photos/life_end.png" alt="" class="img-fluid">
+       <img src="life_photos/life_result.png" alt="" class="img-fluid">
+       <br> <br>
+     </div>
+
+     <div class="footer">
+       <p>Kieran Duggan 2018</p>
+     </div>
+   </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ </body>
+</html>
