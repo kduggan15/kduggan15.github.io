@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = "en">
+ <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="stylesheet" type = "text/css" href="index.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Kieran Duggan</title>
+ </head>
+ <body>
+
+   <div class="container">
+     <div class="header">
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Kieran Duggan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.pdf">Resume</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Projects
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="artificial.html">Artificial Life Project</a>
+                <a class="dropdown-item" href="crypt.html">Crypt (WIP)</a>
+                <a class="dropdown-item" href="gamebook.html">GameBook</a>
+                <a class="dropdown-item" href="document.html">Document System</a>
+              </div>
+            </li>
+        </div>
+      </nav>
+     </div>
+
+     <div class="main">
+       <p class="display-1">Document System</p>
+       <p class="lead">
+         A document system built from a specification assigned in software engineering class. My
+         personal work includes the document manager, text editor, and simple document versioning.<br>
+         Collaborators:<br>
+         Github: <a href="https://github.com/jontran1">jontran1</a><br>
+         Github: <a href="https://github.com/ethen001">ethen001</a><br>
+         Github: <a href="https://github.com/stevenx95">stevenx95</a><br>
+       </p>
+
+       <h2 class="display-4">Technology</h2>
+       <ul>
+         <li>Java</li>
+         <li>JavaFX</li>
+         <li>MySQL</li>
+       </ul>
+
+       <h2 class="display-4">Demo</h2>
+       <h3>Login Screen</h3>
+       <p>The user is presented with a login screen where they can enter their information.
+       Their login information is cross referenced with the login database, and if their infomration
+       is correct, they are logged in and presented with the main menu</p>
+       <img src="document_photos/document_login.png" alt="" class="img-fluid">
+       <br> <br>
+
+       <h3>Main Menu</h3>
+       <p>From the main menu, the user can select from a variety of functions. My personal work is in the
+       document manager, so this is where we will go.</p>
+       <img src="document_photos/document_menu.png" alt="" class="img-fluid">
+       <br><br>
+
+       <h3>Document Manager</h3>
+       <p>From the document manager, the user can complete many tasks, such as:
+       <ul>
+         <li>Create new documents</li>
+         <li>Open a selected document</li>
+         <li>Bring up a list of their own documents, shared documents, and public documents</li>
+       </ul>
+       These tasks are accomplished by queries to a MySQL database. For now, we will open a document
+       </p>
+       <img src="document_photos/document_manager.png" alt="" class="img-fluid">
+       <br><br>
+
+       <h3>Text editor</h3>
+       <p>Here, the user can freely edit the document. Once they are satisfied with their changes,
+       they can select "submit changes" from the dropdown menu</p>
+       <img src="document_photos/document_text.png" alt="" class="img-fluid">
+       <br><br>
+
+       <h3>Versioning</h3>
+       <p>Once the user saves the document, the program finds the difference between the new and old version
+       and simply saves the change between them. (courtesy https://github.com/google/diff-match-patch)
+       This makes it possible to retrieve old versions of documents easily</p>
+       <img src="document_photos/document_version.png" alt="" class="img-fluid">
+       <br><br>
+
+       <h3>Source code</h3>
+       <a href="CSC322-master.zip">Source</a>
+     </div>
+
+     <div class="footer">
+       <p>Kieran Duggan 2018</p>
+     </div>
+   </div>
+
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ </body>
+</html>
