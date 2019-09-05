@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang = "en">
+ <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="stylesheet" type = "text/css" href="index.css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Kieran Duggan</title>
+ </head>
+ <body>
+
+   <div class="container">
+     <div class="header">
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Kieran Duggan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.pdf">Resume</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Projects
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="artificial.html">Artificial Life Project</a>
+                <a class="dropdown-item" href="gamebook.html">GameBook</a>
+                <a class="dropdown-item" href="document.html">Document System</a>
+                <a class="dropdown-item" href="pascc.html">Pascal Compiler</a>
+              </div>
+            </li>
+        </div>
+      </nav>
+     </div>
+
+     <div class="main">
+       <p class="display-1">Dice Roller</p>
+       <p class="lead">Enter a dice command of the format xdy+z where x is the number of die, y is the number of sides, and z is the modifier</p>
+       <p class="lead">An example is 2d6+0. This translates to rolling two six sided die and not adding a modifier</p>
+       <p class="lead"></p>
+
+       <input id = "rollInput" type="text">
+       <button onclick="parseDice()">submit</button>
+       <p id="output"> Result:</p>
+       <p>Below is a histogram showing the distribution of 100 dice rolls.</p>
+       <div id="myDiv" style="width: 400px; height: 400px;"></div>
+
+     <div class="footer">
+       <p>Kieran Duggan 2018</p>
+     </div>
+   </div>
+
+   <script>
+      var input = document.getElementById("rollInput");
+      var output = document.getElementById("output");
+
+
+      function parseDice(){
+        var ival = input.value;
+        var d = false;
+        var modChar = false;
+        var dice=0;
+        var sides=0;
+        var mod=0;
+        let i=0;
+        while(i<ival.length){
+          var c = ival.charAt(i);
+          if(c>='0' && c<='9'&& !d && !modChar){
+            dice*=10;
+            dice+=parseInt(c,10);
+          }
+          if(c=='d'){
+            d = true;
+          }
+          if(c>='0' && c<='9' && d && !modChar){
+            sides*=10;
+            sides+=parseInt(c,10);
+          }
+          if(c=='+'){
+            modChar=true;
+          }
+          if(c>='0' && c<='9' && d && modChar){
+            mod*=10;
+            mod+=parseInt(c,10);
+          }
+          i++;
+        }
+        if(dice == 0) dice = 1;
+        var result = Math.ceil(Math.random()*sides*dice)+mod;
+        var x = [];
+        for(i=0;i<100;i++){
+          x[i] = Math.ceil(Math.random()*sides*dice)+mod;
+        }
+        var trace = {
+            x: x,
+            type: 'histogram',
+          };
+        var data = [trace];
+        Plotly.newPlot('myDiv', data, {}, {showSendToCloud: true});
+
+        console.log(""+dice+"d"+sides+"+"+mod);
+        output.innerHTML = "Result: " + result;
+      }
+
+
+   </script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ </body>
+</html>
