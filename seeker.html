@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang = "en">
+ <head>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <link rel="stylesheet" type = "text/css" href="index.css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>Kieran Duggan</title>
+ </head>
+ <body>
+
+   <div class="container">
+     <div class="header">
+       <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="index.html">Kieran Duggan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.pdf">Resume</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Projects
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="artificial.html">Artificial Life Project</a>
+                <a class="dropdown-item" href="gamebook.html">GameBook</a>
+                <a class="dropdown-item" href="document.html">Document System</a>
+                <a class="dropdown-item" href="pascc.html">Pascal Compiler</a>
+              </div>
+            </li>
+        </div>
+      </nav>
+     </div>
+
+     <div class="main">
+       <p class="display-1">Seeker Toy</p>
+       <p class="lead">The dot will folow your mouse pointer</p>
+
+       <canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+     <div class="footer">
+       <p>Kieran Duggan 2018</p>
+     </div>
+   </div>
+
+   <script>
+    var canvasX = 400;
+    var canvasY = 400;
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var mouse = {x:200,y:201};
+    var seeker = {x:00,y:00};
+    c.addEventListener('mousemove', function(evt) {
+        var rect = c.getBoundingClientRect();
+        mouse.x = evt.clientX - rect.left;
+        mouse.y = evt.clientY - rect.top;
+      });
+
+    function directionSeeker(){
+      var pi = Math.PI;
+      var vector = {x:mouse.x-seeker.x, y:mouse.y-seeker.y};
+      var angle = Math.atan(vector.y*1.0/vector.x);
+      //angle = angle*180/pi;
+      //angle+=pi/2;
+      if(mouse.x<seeker.x) angle+=pi;
+
+      seeker.x+= Math.round(Math.cos(angle)*3);
+      seeker.y+= Math.round(Math.sin(angle)*3);
+    }
+    seeker.x>400 ? 400:seeker.x;
+    seeker.y>400 ? 400:seeker.y;
+    seeker.x<0 ? 0:seeker.y;
+    seeker.y<0 ? 0:seeker.y;
+
+    function DFSSeeker(x, y, visited){
+      if(x == mouse.x && y == mouse.y)
+        return true;
+    }
+    function seekerLogic(){
+      var visited = [];
+      for(var i=0; i<400; i++){
+        visited[i] = [];
+        for(var j=0;j<400; j++){
+          visited[i][j] = false;
+        }
+      }
+      directionSeeker();
+    }
+    function update(progress) {
+      // Update the state of the world for the elapsed time since last render
+      seekerLogic();
+    }
+
+    function draw() {
+      // Draw the state of the world
+      ctx.rect(0, 0, c.width, c.height);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+      ctx.fillStyle = 'black';
+      ctx.fillRect(seeker.x-6, seeker.y-6, 12, 12);
+    }
+
+    function loop(timestamp) {
+      var progress = timestamp - lastRender
+
+      update(progress)
+      draw()
+
+      lastRender = timestamp
+      window.requestAnimationFrame(loop)
+    }
+    var lastRender = 0
+    window.requestAnimationFrame(loop)
+
+   </script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+ </body>
+</html>
