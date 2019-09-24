@@ -94,6 +94,10 @@
         }
         if(dice == 0) dice = 1;
         var result = Math.ceil(Math.random()*sides*dice)+mod;
+        result = mod;
+        for(i=0; i<dice;i++){
+          result+=Math.ceil(Math.random()*sides);
+        }
 
 
         console.log(""+dice+"d"+sides+"+"+mod);
