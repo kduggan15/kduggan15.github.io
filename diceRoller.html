@@ -51,8 +51,6 @@
        <input id = "rollInput" type="text">
        <button onclick="parseDice()">submit</button>
        <p id="output"> Result:</p>
-       <p>Below is a histogram showing the distribution of 100 dice rolls.</p>
-       <div id="myDiv" style="width: 400px; height: 400px;"></div>
 
      <div class="footer">
        <p>Kieran Duggan 2018</p>
@@ -96,16 +94,7 @@
         }
         if(dice == 0) dice = 1;
         var result = Math.ceil(Math.random()*sides*dice)+mod;
-        var x = [];
-        for(i=0;i<100;i++){
-          x[i] = Math.ceil(Math.random()*sides*dice)+mod;
-        }
-        var trace = {
-            x: x,
-            type: 'histogram',
-          };
-        var data = [trace];
-        Plotly.newPlot('myDiv', data, {}, {showSendToCloud: true});
+
 
         console.log(""+dice+"d"+sides+"+"+mod);
         output.innerHTML = "Result: " + result;
