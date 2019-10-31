@@ -1,6 +1,7 @@
 body{
   color: #C4B69A;
   background-color: #0D1F21;
+  
 }
 
 div {
@@ -14,4 +15,13 @@ nav {
   //border-style: dotted;
   padding: 10px;
   margin: 10px;
+}
+
+.bg-kd1{
+  color: #143441;
+  background-color: #143441;
+}
+
+.border-kd1{
+  border-color: #C4B69A;
 }
