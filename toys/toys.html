@@ -3,6 +3,7 @@
  <head>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
    <link rel="stylesheet" type = "text/css" href="../index.css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <title>Kieran Duggan</title>
@@ -20,54 +21,36 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="../index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../resume.pdf">Resume</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="projects.html">Projects<span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
-              <a class="nav-link" href="../toys/toys.html">Toys</a>
+              <a class="nav-link" href="../projects/projects.html">Projects</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="toys.html">Toys</a>
             </li>
         </div>
       </nav>
      </div>
 
      <div class="main">
-       <p class="display-1">Artificial Life</p>
-       <p class="display-4">(Fall 2018)</p>
-       <p class="lead">
-         Based off of Conway's Game of Life, The goal of this project is to create simple rules which each individual organism follows in an attempt to
-         create more interesting emerging patterns. This was a group project. My work includs the logic for the grid and the graphics. The organism logic
-         and terrain generation are courtesy of my collaborators. <br>
-         Github: <a href="https://github.com/V-Grigoryan">V-Grigoryan</a><br>
-         Github: <a href="https://github.com/rick42">rick42</a><br>
-       </p>
+       <p class="display-1 text-center">Toy programs</p>
+       <div class="d-flex justify-content-center flex-wrap">
+         <div class="card text-white bg-kd1 border-kd1 mb-3" style="width: 18rem;">
+          <img class="card-img-top" src="dice_banner.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dice Roller</h5>
+            <p class="card-text">Takes a string describing a dice roll and performs the dice roll electronically</p>
+            <a href="diceRoller.html" class="btn btn-primary">Go to page</a>
+          </div>
+        </div>
+     </div>
 
-       <h2 class="display-4">Technology</h2>
-       <ul>
-         <li>Java</li>
-         <li>JavaFX</li>
-       </ul>
+      </div>
 
-       <h2 class="display-4">Demo</h2>
-       <h3>Initial state</h3>
-       <p>The grid is randomly set based on randomly generating a terrain of mountain ranges and rocks.
-       The terrain is then randomly filled with different ratios of organisms</p>
-       <img src="life_photos/life_start.png" alt="" class="img-fluid">
-       <br> <br>
-
-       <h3>After a full run</h3>
-       <p>After the program is run for some time, it will reach a steady state where the entire ecosystem dies.
-       At this point some statistics about the run are printed in the console</p>
-       <img src="life_photos/life_end.png" alt="" class="img-fluid">
-       <img src="life_photos/life_result.png" alt="" class="img-fluid">
-       <br> <br>
-       <br><br>
-       <h3>Github</h3>
-       <a href="https://github.com/kduggan15/Artificial-Life-Project">https://github.com/kduggan15/Artificial-Life-Project</a>
      </div>
 
      <div class="footer">
@@ -75,7 +58,11 @@
      </div>
    </div>
 
-
+   <script>
+    $(function(){
+      $("#nav-holder").load("nav.html");
+    });
+   </script>
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
